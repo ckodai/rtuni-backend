@@ -7,6 +7,10 @@
   "license": "UNLICENSED",
   "scripts": {
     "prebuild": "rimraf dist",
+    "typeorm": "ts-node ./node_modules/typeorm/cli.js -f src/ormconfig.ts",
+    "typeorm:migrate": "npm run typeorm migration:generate -- -n",
+    "typeorm:revert": "npm run typeorm migration:revert",
+    "typeorm:run": "npm run typeorm migration:run",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
@@ -21,12 +25,17 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
+    "@golevelup/nestjs-hasura": "^0.5.0",
     "@nestjs/common": "^7.0.0",
     "@nestjs/core": "^7.0.0",
     "@nestjs/platform-express": "^7.0.0",
+    "@nestjs/typeorm": "^7.1.0",
+    "dotenv": "^8.2.0",
+    "pg": "^8.2.1",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "rxjs": "^6.5.4"
+    "rxjs": "^6.5.4",
+    "typeorm": "^0.2.25"
   },
   "devDependencies": {
     "@nestjs/cli": "^7.0.0",
