@@ -6,15 +6,17 @@ const data: any = dotenv.parse(fs.readFileSync('dbcredentials.env'));
 
 const config: ConnectionOptions = {
   type: 'postgres',
-  host: data.dbconn_host,
-  port: data.dbconn_port,
-  username: data.dbconn_user,
-  password: data.dbconn_password,
-  database: data.dbconn_database,
+  url: data.dbconn_uri,
   entities: [__dirname + '/**/*.entity{.ts,.js}'],
   synchronize: false,
   migrationsRun: true,
   logging: true,
+  ssl: true,
+  extra: {
+    ssl: {
+      rejectUnauthorized: false,
+    },
+  },
   logger: 'file',
   migrations: [__dirname + '/migrations/**/*{.ts,.js}'],
   cli: {
