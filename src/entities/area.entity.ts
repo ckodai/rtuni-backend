@@ -14,6 +14,9 @@ export class Area {
     @Column()
     Nombre: string;
 
+    @Column()
+    Observacion: string;
+
     @OneToMany(type => Lugar, lugar => lugar.Area)
     Lugares: Lugar[];
 }
