@@ -18,7 +18,7 @@ export class Usuario {
     Edad: number;
     
     @Column()
-    Origen: number;
+    Origen: string;
 
     @Column()
     Nombre: string;

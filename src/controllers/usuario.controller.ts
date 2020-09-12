@@ -2,7 +2,7 @@ import { Controller, Get, HttpStatus, Res, Post, Req, Put } from '@nestjs/common
 import { Response, Request } from 'express';
 import { UsuarioService } from 'src/services/usuario.service';
 
-@Controller()
+@Controller('api/usuarios')
 export class UsuarioController {
     constructor(
         private usuarioSerive: UsuarioService
